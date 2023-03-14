@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_JavaScript_Game-Project</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .colorSquare{
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+        border: none;
+    }
+
+    button:first-child{
+        background-color: red;
+    }
+
+    button:nth-child(2){
+        background-color: yellow;
+    }
+
+    button:nth-child(3){
+        background-color: green;
+    }
+
+    .clearGameBtn{
+        display: flex;
+        justify-content: center;
+    }
+
+    .clear-game{
+        border: none;
+        padding: 10px;
+        margin: 10px;
+        color: white;
+
+    }
+</style>
+<body>
+    <div class="container">
+        <button class="colorSquare" id="red" value="red"></button>
+        <button class="colorSquare" id="yellow" value="yellow"></button>
+        <button class="colorSquare" id="green" value="green"></button>
+    </div>
+    <div class="clearGameBtn">
+        <button class="clear-game" onclick="clearScore()">Clear Game</button>
+    </div>
+
+    <script>
+        // Declare Variable
+        const squareBoxes = document.querySelectorAll(".colorSquare");
+        // const clearGameBtn = document.querySelector(".clear-game");
+        
+        // Create an object to store value
+        let timeClicked = {"red": 0, "yellow": 0, "green": 0}
+
+        squareBoxes.forEach(square => {
+            square.onclick = () => {
+                timeClicked[square.value] += 1;
+                square.innerText = timeClicked[square.value]
+            }   
+        })
+
+        const clearScore = () => {
+            squareBoxes.forEach(square => square.innerText = 0)
+        }
+        
+    </script>
+</body>
+</html>
