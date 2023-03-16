@@ -69,9 +69,12 @@
                 square.innerText = timeClicked[square.value]
             }   
         })
-
+        
         const clearScore = () => {
-            squareBoxes.forEach(square => square.innerText = 0)
+            squareBoxes.forEach(box => {
+                timeClicked[box.value] = 0;
+                box.innerText = timeClicked[box.value]
+            })
         }
         
     </script>
